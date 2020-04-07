@@ -1,5 +1,5 @@
 provider "google-beta" {
-  credentials = file("")
+  credentials = file("~/data/service-account.json")
   project     = var.host_project_id
   region      = var.region
 }
