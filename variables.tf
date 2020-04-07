@@ -45,7 +45,6 @@ variable "vm2_name" {
 
 variable "host_project_id" {
   description = "Project ID, example 'data-science-activator'"
-  default     = ""
 }
 
 #EDW
