@@ -23,12 +23,11 @@ WORKDIR $GOPATH
 
 COPY info.json info.json
 
-RUN make /data/
+RUN mkdir /data/
 
 #WORKDIR /opt/app
 RUN git clone https://github.com/tranquilitybase-io/tb-activator-gft-datazone.git
   
-RUN make /data/   
 
 #ENTRYPOINT ["terraform"]
 
