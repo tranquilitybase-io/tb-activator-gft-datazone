@@ -1,6 +1,7 @@
 # Stage 1: build the docker image 'docker build .'
-# Stage 2: run the image
-# Stage 3: execute the image,  'docker exec -it 0244f92e0527 terraform init  tb-activator-gft-datazone/'
+# Stage 2: Create a local directory for docker volum to put service account file.
+# Stage 3: run the image, docker run -t -v {local directory for service account file}:/opt/app/data/ -d {image_id} 
+# Stage 4: execute command on container,  'docker exec -it {container_id}  terraform init tb-activator-gft-datazone/'
 
 
 FROM golang:alpine
