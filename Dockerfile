@@ -19,7 +19,6 @@ RUN git clone https://github.com/hashicorp/terraform.git ./ && \
     git checkout v${TERRAFORM_VERSION} && \
     /bin/bash scripts/build.sh
 
-#WORKDIR $GOPATH
 
 
 WORKDIR /opt/app
@@ -27,6 +26,5 @@ RUN git clone https://github.com/tranquilitybase-io/tb-activator-gft-datazone.gi
 
 COPY info.json info.json
 RUN mkdir data/
-#ENTRYPOINT ["terraform"]
 
 
