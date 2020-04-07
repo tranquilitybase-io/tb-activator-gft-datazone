@@ -42,7 +42,7 @@ resource "google_compute_instance" "vm_instance" {
   zone         = var.zone
 
   metadata = {
-    startup-script = file("/go/tb-activator-gft-datazone/init_vms.sh")
+    startup-script = file("/opt/app/tb-activator-gft-datazone/init_vms.sh")
   }
 
   boot_disk {
