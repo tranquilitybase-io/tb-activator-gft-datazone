@@ -1,0 +1,10 @@
+{
+	"name": "gcp ML datazone",
+	"category": "Machine Learning",
+	"lastUpdated": "07-Apr-2020",
+	"platforms": "GCP",
+	"ci": "Jenkins",
+	"cd": "Jenkins",
+	"description": "Environment securely push the data into infrastructure for data science activity.",
+	"Url": "git@github.com:tranquilitybase-io/tb-activator-gft-datazone.git"
+}
