@@ -5,6 +5,7 @@ import sys
 import re
 from shutil import copyfile
 from datetime import datetime
+import json
 
 
 logger = logging.getLogger(__name__)
@@ -31,7 +32,8 @@ def get_args(args):
     parser.add_argument('-in', '--in_file', type=str,
                         help='input variable.tf file', required=True)
     parser.add_argument('-out', '--output_file', type=str,
-                        help='output variable.tf file', required=False)
+                        help='output variable.tf file', default= "",
+                        required=False)
 
     parser.add_argument(
         '-v',
@@ -113,50 +115,49 @@ def find_missing_vars(data):
     return mandatories
 
 
-d_variables = {'dataproc_workers_machine_type': '20', 'host_project_id': 'data-science-activator'}
 def update_variables(d_varibales, d_updates):
     data_updated = {}
-    for varible in data.keys():
-        if varible in d_variables.keys():
+    for varible in d_varibales.keys():
+        if varible in d_updates.keys():
             d = 0
-            values = data[varible]
+            values = d_varibales[varible]
             vals = []
             for val in values:
                 if val.startswith('default'):
                     d = 1
-                    if d_variables[varible].isdigit():
-                        elem = 'default = {}'.format(l_updates[varible])
+                    if d_updates[varible].isdigit():
+                        elem = 'default = {}'.format(d_updates[varible])
                     else:
-                        elem = 'default = "{}"'.format(d_variables[varible])
+                        elem = 'default = "{}"'.format(d_updates[varible])
                     vals.append(elem)
 
                 else:
                     vals.append(val)
                 
             if d ==0:
-                if d_variables[varible].isdigit():
-                    elem = 'default = {}'.format(d_variables[varible])
+                if d_updates[varible].isdigit():
+                    elem = 'default = {}'.format(d_updates[varible])
                 else:
-                    elem = 'default = "{}"'.format(d_variables[varible])
+                    elem = 'default = "{}"'.format(d_updates[varible])
                 vals.append(elem)
             data_updated[varible] = vals
         else:
-            data_updated[varible]= data[varible]
+            data_updated[varible]= d_varibales[varible]
     return data_updated
 
 
-
-def update_variable_file(d_updated_varibales, variable_file):
-    l_variables = []
+def update_variable_file(d_updated_variables, variable_file):
     lines = ""
-    for varible in d_updated_varibales.keys():
-        l = 'variable "{}" {}\n'.format(varible, '{')
+    for variable in d_updated_variables.keys():
+        l = 'variable "{}" {}\n'.format(variable, '{')
         vl = ""
-        for val in d_updated_varibales[varible]:
+        for val in d_updated_variables[variable]:
             vl  = vl +"{}\n".format(val)
-        l = 'variable "{}" {}\n{}{}\n'.format(varible, '{', vl, '}')
+        l = 'variable "{}" {}\n{}{}\n'.format(variable, '{', vl, '}')
         lines = "{}\n{}".format(lines,l)
-    print(lines)
+
+    with open(variable_file, "w") as f:
+        f.write(lines)
 
 
 def main(args):
@@ -177,19 +178,38 @@ def main(args):
 
     input_file = args.in_file
     logging.info("Input variable.tf file is: {}".format(input_file))
-
     now = datetime.now()
-    dt_string = now.strftime("%d-%m-%Y-%H-%M-%S")
-    backup_file = input_file + "-"+dt_string+".backup"
-    copyfile(input_file, backup_file)
-    logging.info("Input file {} has been backed up to {}".format(
-        input_file, backup_file))
+
+    if args.action == 'list':
+        data = read_variable_file(input_file)
+        missings = find_missing_vars(data)
+        logging.info("Variables that needs to be updated are:")
+        logging.info(missings)
+
+    elif args.action == 'update':
+        dt_string = now.strftime("%d-%m-%Y-%H-%M-%S")
+        backup_file = input_file + "-" + dt_string + ".backup"
+        copyfile(input_file, backup_file)
+        logging.info("Input file {} has been backed up to {}".format(
+            input_file, backup_file))
+
+        replacement_file = args.config_file
+        d_varibales = read_variable_file(input_file)
+        # Opening JSON file
+        with open(replacement_file) as json_file:
+            d_updates = json.load(json_file)
+
+        print(d_updates)
+        d_updated_variables = update_variables(d_varibales, d_updates)
+        if args.output_file == "":
+            update_variable_file(d_updated_variables, input_file)
+        else:
+            update_variable_file(d_updated_variables, args.output_file)
 
 
 
 
 def run():
-
     main(sys.argv[1:])
 
 
