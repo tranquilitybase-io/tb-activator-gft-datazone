@@ -69,7 +69,6 @@ def setup_logging(loglevel):
 
 
 
-
 def read_variable_file(filepath):
     data = {}
     var = []
@@ -185,8 +184,18 @@ def main(args):
         missings = find_missing_vars(data)
         logging.info("Variables that needs to be updated are:")
         logging.info(missings)
+        update_file=''
+        if args.output_file == "":
+            update_file = 'update_file.txt'
+        else:
+            update_file = args.output_file
+
+        with open(update_file, "w") as f:
+            for miss in missings:
+                f.write(miss+"\n")
 
     elif args.action == 'update':
+        logging.info("Updating variable file has been started.")
         dt_string = now.strftime("%d-%m-%Y-%H-%M-%S")
         backup_file = input_file + "-" + dt_string + ".backup"
         copyfile(input_file, backup_file)
@@ -194,19 +203,20 @@ def main(args):
             input_file, backup_file))
 
         replacement_file = args.config_file
-        d_varibales = read_variable_file(input_file)
-        # Opening JSON file
+        d_variables = read_variable_file(input_file)
+
         with open(replacement_file) as json_file:
             d_updates = json.load(json_file)
 
-        print(d_updates)
-        d_updated_variables = update_variables(d_varibales, d_updates)
+        d_updated_variables = update_variables(d_variables, d_updates)
         if args.output_file == "":
             update_variable_file(d_updated_variables, input_file)
+            logging.info("Updated variable file has been written into {"
+                         "}".format(input_file))
         else:
             update_variable_file(d_updated_variables, args.output_file)
-
-
+            logging.info("Updated variable file has been written into {"
+                         "}".format(args.output_file))
 
 
 def run():
