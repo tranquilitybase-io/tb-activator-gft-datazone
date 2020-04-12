@@ -64,20 +64,18 @@ variable "staging_bucket_name" {
 
 variable "region" {
   description = "General location of the project, example 'europe-west2'"
-  default     = "europe-west2"
-  #default     = "europe-west2"
+  default     = ""
 }
 
 variable "zone" {
   description = "General zone of the project, example 'europe-west2-b'"
-  default     = "europe-west2-b"
-  #default     = "europe-west2-b"
+  default     = ""
 }
 
 
 #EDW
 variable "standard_subnetwork" {
-  description = "VPC subnetwork"
-  default     = "main-network-subnet"
+  description = "VPC subnetwork such as main-network-subnet"
+  default     = ""
 }
 
