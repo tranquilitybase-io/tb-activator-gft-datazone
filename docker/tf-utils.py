@@ -95,7 +95,6 @@ def read_variable_file(filepath):
             line = fp.readline()
             i +=1
         if variable != '':
-            print(variable)
             data[variable] = var
         return data
 
