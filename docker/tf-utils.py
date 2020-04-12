@@ -80,11 +80,13 @@ def read_variable_file(filepath):
         while line:
             if line.startswith( 'variable' ):
                 if i != 0:
-                    data[variable] = var
+                    if variable != '':
+                        data[variable] = var
                     var = []
                 name = re.findall('"([^"]*)"', line)
                 variable = name[0]
-                data[variable]=""
+                if variable != '':
+                    data[variable]=""
             else:
                l = line.strip()
                if l not in excluded_list and not(l.startswith('#')):
@@ -92,8 +94,9 @@ def read_variable_file(filepath):
        
             line = fp.readline()
             i +=1
-    
-        data[variable] = var
+        if variable != '':
+            print(variable)
+            data[variable] = var
         return data
 
 
@@ -145,13 +148,14 @@ def update_variables(d_varibales, d_updates):
     return data_updated
 
 
+
 def update_variable_file(d_updated_variables, variable_file):
     lines = ""
     for variable in d_updated_variables.keys():
         l = 'variable "{}" {}\n'.format(variable, '{')
         vl = ""
         for val in d_updated_variables[variable]:
-            vl  = vl +"{}\n".format(val)
+            vl  =vl +"{}\n".format('  '+val)
         l = 'variable "{}" {}\n{}{}\n'.format(variable, '{', vl, '}')
         lines = "{}\n{}".format(lines,l)
 
