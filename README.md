@@ -40,8 +40,8 @@ This activator builds the following components:
     
  
   
-## Resources:
-### GCE (Google Cloud Compute) 
+### Resources:
+#### GCE (Google Cloud Compute) 
 Virtual machines that can be used to perform ETL tasks. This activator creates 1 virtual machines. The types of machine can be
  configured at terraform apply stage using the following variable:
  
@@ -66,7 +66,7 @@ It also installs important python packages such as:
 * pyspark  
  
 
-### GCS (Google Cloud Storage)
+#### GCS (Google Cloud Storage)
 In this activator, we creates two google storage buckets. 
  * landing-data-bucket: To be used for landing incoming data.
  * staging-data-bucket: To be used by Dataproc.
@@ -75,7 +75,7 @@ There is an example data file 'market_data.csv', which will be uploaded into
  landing-data-bucket as part of this infrastructure building, It will be
   uploaded into ```landing-data-bucket/prepared_data/```.
 
-### BigQuery
+#### BigQuery
 
 BigQuery is a serverless, highly scalable, and cost-effective cloud data
  warehouse. In this infrastructure building task, the following resources
@@ -84,7 +84,7 @@ BigQuery is a serverless, highly scalable, and cost-effective cloud data
   * google_bigquery_table, named market
 
 
-### Dataproc cluster
+#### Dataproc cluster
 Dataproc is a fast, easy-to-use, fully managed cloud service for running
 Apache Spark and Apache Hadoop clusters. In Dataproc creation, the
 following specification can be configured:
@@ -96,7 +96,7 @@ following specification can be configured:
   example 'custom-1-6656-ext'
 
 
-### Gcpip package 
+#### Gcpip package 
 This is a python package that you can use to:
 * Encrypt data 
 * Upload encrypted data securely into the infrastructure using Clopud KMS
