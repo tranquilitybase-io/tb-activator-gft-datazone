@@ -6,9 +6,9 @@ The activator provides the shared components infrastructure, and also installs t
 
 The activator can be installed either through the docker package (recommended) or via the underlying source code. Both of these are available in the repository.
 
-# Description
 Running this package creates the following infrastructure resources in GCP:
-## GCE (Google Cloud Compute) 
+
+### GCE (Google Cloud Compute) 
 Virtual machines that can be used to perform ETL tasks. This activator creates 1 virtual machines. The types of machine can be
  configured at terraform apply stage using the following variable:
  
@@ -33,7 +33,7 @@ It also installs important python packages such as:
 * pyspark  
  
 
-## GCS (Google Cloud Storage)
+### GCS (Google Cloud Storage)
 In this activator, we creates two google storage buckets. 
  * landing-data-bucket: To be used for landing incoming data.
  * staging-data-bucket: To be used by Dataproc.
@@ -42,7 +42,7 @@ There is an example data file 'market_data.csv', which will be uploaded into
  landing-data-bucket as part of this infrastructure building, It will be
   uploaded into ```landing-data-bucket/prepared_data/```.
 
-## BigQuery
+### BigQuery
 
 BigQuery is a serverless, highly scalable, and cost-effective cloud data
  warehouse. In this infrastructure building task, the following resources
@@ -51,7 +51,7 @@ BigQuery is a serverless, highly scalable, and cost-effective cloud data
   * google_bigquery_table, named market
 
 
-## Dataproc cluster
+### Dataproc cluster
 Dataproc is a fast, easy-to-use, fully managed cloud service for running
 Apache Spark and Apache Hadoop clusters. In Dataproc creation, the
 following specification can be configured:
@@ -62,8 +62,7 @@ following specification can be configured:
 * dataproc_workers_machine_type: Machine type for dataproc workers, 
   example 'custom-1-6656-ext'
 
-
-# Installation procedure
+## Installation: Deploying data landing zone (Using Docker)
 Please run the following commands:
 get the image, please update 1.2 which is the version, check and update to latest version, at the time of writing this document the latest version is 1.2.
 ```
@@ -129,3 +128,15 @@ docker exec -it 2e427edb7c0f terraform validate tb-activator-gft-datazone/
 docker exec -it 2e427edb7c0f terraform plan tb-activator-gft-datazone/
 docker exec -it 2e427edb7c0f terraform apply tb-activator-gft-datazone/
 ```
+## Usage
+
+The activator allows accelerated importation of on-premise data into a GCP environment in a standardised way. As such it can be deployed as the first step of almost any Cloud or Machine Learning based initiative.
+
+Some potential uses of this activator are outlined in the wiki associated with this repo.
+
+1. Machine Learning Secure Data Solution
+
+2. Banking Risk: Integrated Model Lifecycle Framework Solution
+
+3. Banking: Federated Process Management Solution
+
