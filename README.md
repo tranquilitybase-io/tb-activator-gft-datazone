@@ -7,7 +7,7 @@ The activator provides the shared components infrastructure, and also installs t
 
 The activator can be installed either through the docker package (recommended) or via the underlying source code. Both of these are available in the repository.
 
-## INSTALLATION: Deploying data landing zone (Using Source Code)
+## Installation: Deploying data landing zone (Using Source Code)
 
 Pre-requisite to build the data science environment is to build the shared
 -components infrastructures, and also terraform has been installed and project and service accounts have already been created.
@@ -110,3 +110,15 @@ This is a python package that you can use to:
 * Load data into BQ
 * Create Views in BQ
 * Performing feature engineering using Daraproc
+
+## Usage
+The activator allows accelerated importation of on-premise data into a GCP environment in a standardised way.  As such it can be deployed as the first step of almost any Cloud or Machine Learning based initiative.
+
+Some potential uses of this activator are outlined in the wiki associated with this repo.
+
+1. Machine Learning Secure Data Solution
+
+2. Banking Risk: Integrated Model Lifecycle Framework Solution
+
+3. Banking: Federated Process Management Solution
+
