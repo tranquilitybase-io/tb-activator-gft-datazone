@@ -5,9 +5,9 @@ The tb-activator-gft-datazone is a repo that facilitates the loading of data int
 
 The activator provides the shared components infrastructure, and also installs terraform and project and creates service accounts.
 
-The activator can be installed either through the docker package (recommended) or via the underlying source code. Both of these are available in the repository
+The activator can be installed either through the docker package (recommended) or via the underlying source code. Both of these are available in the repository.
 
-## Deploying data landing zone (Using Source Code)
+## INSTALLATION: Deploying data landing zone (Using Source Code)
 
 Pre-requisite to build the data science environment is to build the shared
 -components infrastructures, and also terraform has been installed and project and service accounts have already been created.
