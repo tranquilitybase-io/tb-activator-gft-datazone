@@ -1,7 +1,7 @@
 
-# Tranqility Base Activator for Importing Data into Google Cloud Platform
+# Tranqility Base Activator for Importing Data into Google Cloud Platform (GCP)
 
-# Deploying data landing zone
+## Deploying data landing zone
 
 Pre-requisite to build the data science environment is to build the shared
 -components infrastructures, and also terraform has been installed and project and service accounts have already been created.
