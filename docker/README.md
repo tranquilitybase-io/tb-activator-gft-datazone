@@ -1,4 +1,4 @@
-# Tranqility Base Activator for Importing Data into Google Cloud Platform (GCP) [Docker Variation]
+# Tranqility Base Activator for Importing Data into Google Cloud Platform (GCP) [Docker Variant]
 
 The tb-activator-gft-datazone is a repo that facilitates the loading of data into a Google Cloud Platform environment use in specific use cases, for example as an accelerator to build a secure data science environment.
 
