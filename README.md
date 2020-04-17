@@ -23,10 +23,22 @@ provider "google" {
   region      = var.region
 }
 ```
-* Update variables.tf and add your project_id to the following in default = "":
+* Update the following variable in variables.tf:
 ```hcl-terraform
 variable "host_project_id" {
   description = "Project ID, example 'data-science-activator'"
+  default     = ""
+}
+variable "zone" {
+  description = "General zone of the project, example 'europe-west2-b'"
+  default     = ""
+}
+variable "standard_subnetwork" {
+  description = "VPC subnetwork such as main-network-subnet"
+  default     = ""
+}
+variable "region" {
+  description = "General location of the project, example 'europe-west2'"
   default     = ""
 }
 ```
