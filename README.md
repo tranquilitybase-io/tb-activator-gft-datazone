@@ -116,10 +116,8 @@ The activator allows accelerated importation of on-premise data into a GCP envir
 
 Some potential uses of this activator are outlined in the wiki associated with this repo.
 
-1. Machine Learning Secure Data Solution
 [1. Machine Learning Secure Data Solution](https://github.com/tranquilitybase-io/tb-activator-gft-datazone/wiki/1.-Machine-Learning-Secure-Data-Proposition)
 
-2. Banking Risk: Integrated Model Lifecycle Framework Solution
+[2. Banking Risk: Integrated Model Lifecycle Framework Solution](https://github.com/tranquilitybase-io/tb-activator-gft-datazone/wiki/2.-Banking-Risk:-Integrated-Model-Lifecycle-Framework)
 
-3. Banking: Federated Process Management Solution
-
+[3. Banking: Federated Process Management Solution](https://github.com/tranquilitybase-io/tb-activator-gft-datazone/wiki/3.-Banking:-Federated-Process-Management-Solution)
