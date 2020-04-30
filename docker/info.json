@@ -6,5 +6,7 @@
 	"ci": "Jenkins",
 	"cd": "Jenkins",
 	"description": "Environment securely push the data into infrastructure for data science activity.",
-	"Url": "git@github.com:tranquilitybase-io/tb-activator-gft-datazone.git"
+	"Url": "git@github.com:tranquilitybase-io/tb-activator-gft-datazone.git",
+	"mandatory variables": ["standard_subnetwork", "zone","host_project_id","region"],
+	"optional variables": ["vms_size"]
 }
