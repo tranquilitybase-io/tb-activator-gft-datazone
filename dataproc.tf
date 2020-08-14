@@ -1,6 +1,7 @@
 # Building google dataproc cluster
 
 resource "google_dataproc_cluster" "dataproc-cluster" {
+  count  = var.enable_dataproc ? 1 : 0
   name   = "dataproc-cluster"
   region = var.region
 
@@ -45,15 +46,15 @@ resource "google_dataproc_cluster" "dataproc-cluster" {
 
     gce_cluster_config {
       #metadata = {
-       # startup-script = file("init_dataproc.sh")
+      # startup-script = file("init_dataproc.sh")
       #}
-#EDW
+      #EDW
 
-	zone = var.zone
-#	network = var.vpc_network 
-	subnetwork = var.standard_subnetwork
+      zone = var.zone
+      #	network = var.vpc_network 
+      subnetwork = var.standard_subnetwork
 
-	tags = ["dsactivatortag1", "dsactivatortag2"]
+      tags = ["dsactivatortag1", "dsactivatortag2"]
 
 
       service_account_scopes = [

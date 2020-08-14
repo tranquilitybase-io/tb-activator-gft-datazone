@@ -42,7 +42,7 @@ resource "google_compute_instance" "vm_instance" {
   zone         = var.zone
 
   metadata = {
-    startup-script = file("/opt/app/tb-activator-gft-datazone/init_vms.sh")
+    startup-script = file("init_vms.sh")
   }
 
   boot_disk {
@@ -57,10 +57,10 @@ resource "google_compute_instance" "vm_instance" {
 
   allow_stopping_for_update = true
 
-  tags = ["dsactivatortag1", "dsactivatortag2"] 
+  tags = ["dsactivatortag1", "dsactivatortag2"]
   network_interface {
-   subnetwork = var.standard_subnetwork
-   subnetwork_project = var.host_project_id
+    subnetwork         = var.standard_subnetwork
+    subnetwork_project = var.host_project_id
     access_config {
     }
   }

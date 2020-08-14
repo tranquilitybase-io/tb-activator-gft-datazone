@@ -1,11 +1,11 @@
 provider "google-beta" {
-  credentials = file("/opt/app/data/service-account.json")
+  credentials = file("sap-ds-demo-f1e20ee7706d.json")
   project     = var.host_project_id
   region      = var.region
 }
 
 provider "google" {
-  credentials = file("/opt/app/data/service-account.json")
+  credentials = file("sap-ds-demo-f1e20ee7706d.json")
   project     = var.host_project_id
   region      = var.region
 }
