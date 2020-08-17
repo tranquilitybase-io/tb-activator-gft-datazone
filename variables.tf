@@ -24,6 +24,12 @@ variable "vms_size" {
   #default = 200
 }
 
+variable "enable_composer" {
+  description = "Sets-up Dataproc cluster"
+  type        = bool
+  default     = true
+}
+
 variable "enable_datafusion" {
   description = "Sets-up Dataproc cluster"
   type        = bool
