@@ -1,12 +1,15 @@
 {
-	"name": "gcp ML datazone",
-	"category": "Machine Learning",
-	"lastUpdated": "07-Apr-2020",
-	"platforms": "GCP",
-	"ci": "Jenkins",
-	"cd": "Jenkins",
-	"description": "Environment securely push the data into infrastructure for data science activity.",
-	"Url": "git@github.com:tranquilitybase-io/tb-activator-gft-datazone.git",
-	"mandatory variables": ["standard_subnetwork", "zone","host_project_id","region"],
-	"optional variables": ["vms_size"]
+  "name": "gcp ML datazone",
+  "category": "Machine Learning",
+  "lastUpdated": "17-Aug-2020",
+  "platforms": ["GCP"],
+  "description": "Environment securely push the data into infrastructure for data science activity.",
+  "Url": "git@github.com:tranquilitybase-io/tb-activator-gft-datazone.git",
+  "mandatoryVariables": [
+    { "name": "standard_subnetwork", "type": "string" },
+    { "name": "zone", "type": "gcp_zone" },
+    { "name": "host_project_id", "type": "string" },
+    { "name": "region", "type": "gcp_region" }
+  ],
+  "optionalVariables": [{ "name": "vms_size", "type": "gcp_vms_size" }]
 }
