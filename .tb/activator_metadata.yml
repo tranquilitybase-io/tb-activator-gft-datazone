@@ -2,6 +2,7 @@
 name: gcp ML datazone
 category: Machine Learning
 lastUpdated: 2020-08-17
+type: Tier 2
 platforms:
   - GCP
 description:
