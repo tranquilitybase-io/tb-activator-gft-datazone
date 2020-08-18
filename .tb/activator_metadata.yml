@@ -13,11 +13,11 @@ mandatoryVariables:
   - name: standard_subnetwork
     type: string
   - name: zone
-    type: gcp_zone
+    type: tb_zone
   - name: host_project_id
     type: string
   - name: region
-    type: gcp_region
+    type: tb_region
 optionalVariables:
   - name: vms_size
-    type: gcp_vms_size
+    type: tb_vms_size
