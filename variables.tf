@@ -27,7 +27,7 @@ variable "vms_size" {
 variable "enable_composer" {
   description = "Sets-up Dataproc cluster"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "enable_datafusion" {
