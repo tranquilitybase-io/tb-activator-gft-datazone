@@ -1,0 +1,23 @@
+---
+name: gcp ML datazone
+category: Machine Learning
+lastUpdated: 2020-08-17
+type: Tier 2
+platforms:
+  - GCP
+description:
+  Environment securely push the data into infrastructure for data science
+  activity.
+url: git@github.com:tranquilitybase-io/tb-activator-gft-datazone.git
+mandatoryVariables:
+  - name: standard_subnetwork
+    type: string
+  - name: zone
+    type: tb_zone
+  - name: host_project_id
+    type: string
+  - name: region
+    type: tb_region
+optionalVariables:
+  - name: vms_size
+    type: tb_vms_size
