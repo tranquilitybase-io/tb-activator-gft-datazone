@@ -7,6 +7,27 @@ The activator provides the shared components infrastructure, and also installs t
 
 The activator can be installed either through the docker package (recommended) or via the underlying source code. Both of these are available in the repository. This README file describes installation using underlying source code.  The 'Docker' folder provides instructions for installation using the docker package.
 
+## Infrastructure Components
+
+This activator prepares the following GCP infrastructure components:
+- Cloud SQL instance of MySQL
+- Example Big Query dataset and tables
+- Google storage buckets with example data
+- Google Compute Engine VM
+- Datafusion (optional)
+- Dataproc (optional)
+- Cloud Composer (optional)
+
+## Optional Components
+
+The components marked as optional are only required for specific projects and are of higher cost so have been made optional. When applying the terraform plan by `terraform apply` additional parameters can be provided to activate the optional components.
+
+- Datafusion `terraform apply  --var="enable_datafusion=true"`
+- Dataproc  `terraform apply  --var="enable_dataproc=true"`
+- Cloud composer `terraform apply  --var="enable_composer=true"`
+
+Multiple optional components can be activated at once by providing multiple arguments.
+
 ## Installation: Deploying data landing zone (Using Source Code)
 
 Pre-requisite to build the data science environment is to build the shared
